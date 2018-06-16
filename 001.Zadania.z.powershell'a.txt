@@ -1,0 +1,31 @@
+Zad. 1
+gps | ? {$_.ProcessName -ilike 'p*'} | % {$_.kill()}
+
+Zad. 2
+gps | ? {$_.ws -gt 1000mb} | % {$_.kill()}
+
+Zad. 3
+$total = ls -recurse | Measure-Object -property length -sum
+
+Zad. 4
+$pomiar1 = gps | Measure-Object -property ws -sum
+$pomiar2 = gps | Measure-Object -property ws -sum
+$roznica = $pomiar1.sum - $pomiar2.sum
+$roznica
+
+Zad. 5
+$proces = gps notepad | ? {$_.id -eq 10404}
+$proces.responding
+
+Zad. 6
+$string = "this is a string"
+$stringUpper = $string.toUpper()
+
+Zad. 7
+$s = 'string'
+$s.insert(2, 'ABC')
+
+Zad. 8
+help url
+$blog = Invoke-WebRequest -uri http://blogs.msdn.com/powershell/rss.aspx
+$blog.content
